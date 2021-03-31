@@ -18,7 +18,7 @@ public class KthLargestUnitTest {
      public void testFind8(){  
         KthLargest kthLargest = new KthLargest();
         int[] nums = new int[] {4, 7, 3, 9, 2, 8, 1, 6, 5, 10};
-        int value = kthLargest.findKthLargest(nums, 7);
-        Assert.assertEquals(8,value);  
+        int value = kthLargest.findKthLargest(nums, 2);
+        Assert.assertEquals(9,value);  
      }  
 }
