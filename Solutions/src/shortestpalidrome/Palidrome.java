@@ -5,7 +5,6 @@ public class Palidrome {
     public String shortestPalindrome(String s) {
         int n = s.length();
         String rev = new StringBuilder(s).reverse().toString();
-        int j = 0;
         for (int i = 0; i < n; i++) {
             if (s.substring(0, n - i).equals(rev.substring(i)))
                 return rev.substring(0, i) + s;
@@ -13,8 +12,17 @@ public class Palidrome {
         return "";
     }
 
-    private boolean isPalidrome(String s, int start, int end){
-        int mid = start + (start + end)/2;
-        return s.substring(start, mid+1).equals(new StringBuilder(s.substring(mid+1, end)).reverse().toString());
+    public String recursiveShortestPalindrome(String s)
+    {
+        int n = s.length();
+        int i = 0;
+        for (int j = n - 1; j >= 0; j--) {
+            if (s.charAt(i) == s.charAt(j))
+                i++;
+        }
+        if (i == n)
+            return s;
+        String remainRev =new StringBuilder(s.substring(i, n)).reverse().toString();
+        return remainRev + recursiveShortestPalindrome(s.substring(0, i)) + s.substring(i);
     }
 }
